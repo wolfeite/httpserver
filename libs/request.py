@@ -1,6 +1,4 @@
 class Params():
-    pass
-class Request():
     def __init__(self, request, params=[]):
         self.isGet = True if request.method == "GET" else False
         self.request = request
@@ -9,14 +7,14 @@ class Request():
 
     def __enter__(self):
         self.method = self.request.args if self.isGet else self.request.form
-        #self.params = self.map()
+        # self.params = self.map()
         self.params = self.dictList()
         # if not self.isGet:
         #     for i in range(len(self.params)):
         #         val = self.params[i]
         #         if val == None:
         #             self.params[i]=self.request.args.get(self.paramList[i])
-        print("最后结果为>>>>：", self.params, len(list(self.params)),self.dictList())
+        print("最后结果为>>>>：", self.params, len(list(self.params)), self.dictList())
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -39,3 +37,6 @@ class Request():
     def value(self, val):
         param = self.method.get(val)
         return self.request.args.get(val) if param == None and not self.isGet else param
+    def mix(self,f = False):
+        params = self.params
+        type(f)=="function" and f(params)

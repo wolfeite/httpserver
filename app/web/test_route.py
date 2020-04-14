@@ -3,7 +3,7 @@
 from libs.request import Params
 def open():
     print("ok")
-def add_route(web, request, render_template, redirect, app, flash):
+def add_route(web, request, make_response, render_template, redirect, app, flash):
     @web.route("/test")
     def test():
         print("method:", request.method)
