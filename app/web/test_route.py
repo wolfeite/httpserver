@@ -3,8 +3,8 @@
 from libs.request import Params
 def open():
     print("ok")
-def add_route(web, request, make_response, render_template, redirect, app, flash):
-    @web.route("/test")
+def add_route(bp, request, make_response, render_template, redirect, app, flash):
+    @bp.route("/test")
     def test():
         print("method:", request.method)
         # return render_template("templates/layout.html")
@@ -12,7 +12,7 @@ def add_route(web, request, make_response, render_template, redirect, app, flash
         print(app.config["PORT"])
         return render_template("templates/dataTable.html")
 
-    @web.route("/width", methods=["get", "post"])
+    @bp.route("/width", methods=["get", "post"])
     def width():
         with Params(request, ["name", "age", "sex"]) as res:
             print(">>>>>isGet:", res.isGet)

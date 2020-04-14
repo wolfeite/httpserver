@@ -2,7 +2,7 @@ PER_PAGE = 15
 ASIDE = [
     {
         "title": "首页",
-        "url": "#"
+        "url": "/index"
     },
     {
         "title": "表格",
@@ -10,11 +10,11 @@ ASIDE = [
         "item": [
             {
                 "title": "dataTable",
-                "url": "#"
+                "url": "/table/data"
             },
             {
                 "title": "jsTable",
-                "url": "#"
+                "url": "/table/js"
             }
         ]
     },
@@ -24,11 +24,11 @@ ASIDE = [
         "item": [
             {
                 "title": "input",
-                "url": "#"
+                "url": "/form/input"
             },
             {
-                "title": "selector",
-                "url": "#"
+                "title": "other",
+                "url": "/form/other"
             }
         ]
     }

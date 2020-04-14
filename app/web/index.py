@@ -1,6 +1,6 @@
 from libs.request import Params
-def add_route(web, request, make_response, render_template, redirect, app, flash):
-    @web.route("/index")
+def add_route(bp, request, make_response, render_template, redirect, app, flash):
+    @bp.route("/index")
     def index():
         with Params(request, ["branches", "leaves"]) as res:
             pass
@@ -11,5 +11,4 @@ def add_route(web, request, make_response, render_template, redirect, app, flash
             'content-type': 'application/json',  # 以接口JSON数据方式响应浏览器
             'location': 'http://www.bing.com'
         }
-        return render_template("templates/error.html", error=res.result) if res.result["error"] else render_template(
-            "templates/index.html")
+        return render_template("templates/index.html")

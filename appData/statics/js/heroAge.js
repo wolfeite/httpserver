@@ -64,11 +64,11 @@
     var navList = $("#asideLeftList")
     var branches = navList.children("li")
     navList.on("click", "li>a", function (e) {
-        var el = $(this), branch = el.data("branch"), leave = 0;
-        if (el.attr("leave")) {
-            branch = $(this.parentNode.parentNode.parentNode).children("a").data("branch")
-            leave = el.data("leave")
-        }
+        var el = $(this), branch = el.data("branch"), leave = el.data("leave");
+        // if (el.attr("leave")) {
+        //     branch = $(this.parentNode.parentNode.parentNode).children("a").data("branch")
+        //     leave = el.data("leave")
+        // }
         if (el.attr("href") != "#") {
             $.cookie.set("branch", branch)
             $.cookie.set("leave", leave)
@@ -79,18 +79,48 @@
 }(jQuery)
 
 
-// $(function () {
-//     $("#example1").DataTable({
-//       "responsive": true,
-//       "autoWidth": false,
-//     });
-//     $('#example2').DataTable({
-//       "paging": true,
-//       "lengthChange": false,
-//       "searching": false,
-//       "ordering": true,
-//       "info": true,
-//       "autoWidth": false,
-//       "responsive": true,
-//     });
-// });
+$(function () {
+    if ($("#example1").length > 0) {
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+    }
+
+    if ($("#example2").length > 0) {
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    }
+
+    if ($("#jsGrid1").length > 0) {
+        $("#jsGrid1").jsGrid({
+            height: "100%",
+            width: "100%",
+
+            sorting: true,
+            paging: true,
+
+            data: db.clients,
+
+            fields: [
+                {name: "Name", type: "text", width: 150},
+                {name: "Age", type: "number", width: 50},
+                {name: "Address", type: "text", width: 200},
+                {name: "Country", type: "select", items: db.countries, valueField: "Id", textField: "Name"},
+                {name: "Married", type: "checkbox", title: "Is Married"}
+            ]
+        });
+    }
+
+});
+
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});

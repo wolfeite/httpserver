@@ -27,12 +27,12 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">admin</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">修改</a>
-            </li>
+{#            <li class="nav-item d-none d-sm-inline-block">#}
+{#                <a href="#" class="nav-link">admin</a>#}
+{#            </li>#}
+{#            <li class="nav-item d-none d-sm-inline-block">#}
+{#                <a href="#" class="nav-link">修改</a>#}
+{#            </li>#}
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">退出</a>
             </li>
@@ -58,11 +58,14 @@
         <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{ url_for('static',filename='images/user2-160x160.jpg') }}"
+                    <img src="{{ url_for('static',filename='images/user1.jpg') }}"
                          class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">admin</a>
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block" style="font-size: 12px; padding: 2px 0">修改</a>
                 </div>
             </div>
 
@@ -81,7 +84,7 @@
                                 {% set isActive= branch | int() == index %}
                                 <li class="nav-item {{ 'has-treeview' if hasItem else '' }} {{ 'menu-open' if isActive else '' }}">
                                     <a href="{{ val.url }}" class="nav-link {{ 'active' if isActive else '' }}"
-                                       data-branch="{{ index }}" >
+                                       data-branch="{{ index }}" data-leave=0>
                                         <i class="nav-icon fas {{ 'fa-copy' if hasItem else 'fa-file' }}"></i>
                                         <p>
                                             {{ val.title }}
@@ -98,7 +101,7 @@
                                                 {% with iIndex =loop.index - 1 %}
                                                     {% set isItemActive= leave | int() ==iIndex %}
                                                     <li class="nav-item">
-                                                        <a href="{{ iVal.url }}" data-leave="{{ iIndex }}" leave="true"
+                                                        <a href="{{ iVal.url }}" data-branch="{{ index }}" data-leave="{{ iIndex }}" leave="true"
                                                            class="nav-link {{ 'active' if isActive and isItemActive else '' }}">
                                                             <i class="nav-icon fas fa-file"></i>
                                                             <p>{{ iVal.title }}</p>
