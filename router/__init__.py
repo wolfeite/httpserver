@@ -1,5 +1,5 @@
 def register_route(app):
-    from app.web import web, tableView, formView
-    app.register_blueprint(web)
-    app.register_blueprint(tableView)
-    app.register_blueprint(formView)
+    from app.web import bps
+    for bp in bps:
+        app.register_blueprint(bp)
+

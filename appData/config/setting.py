@@ -24,7 +24,7 @@ ASIDE = [
         "item": [
             {
                 "title": "input",
-                "url": "/form/input"
+                "url": "/form/input?name=wf"
             },
             {
                 "title": "other",
