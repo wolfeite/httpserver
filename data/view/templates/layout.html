@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ "后台系统" if not name else name }}</title>
+    <link REL="SHORTCUT ICON" HREF="{{ url_for('static',filename='images/icon.ico/') }}"/>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ url_for('static',filename='plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -27,12 +28,12 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-{#            <li class="nav-item d-none d-sm-inline-block">#}
-{#                <a href="#" class="nav-link">admin</a>#}
-{#            </li>#}
-{#            <li class="nav-item d-none d-sm-inline-block">#}
-{#                <a href="#" class="nav-link">修改</a>#}
-{#            </li>#}
+            {#            <li class="nav-item d-none d-sm-inline-block">#}
+            {#                <a href="#" class="nav-link">admin</a>#}
+            {#            </li>#}
+            {#            <li class="nav-item d-none d-sm-inline-block">#}
+            {#                <a href="#" class="nav-link">修改</a>#}
+            {#            </li>#}
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">退出</a>
             </li>
@@ -101,7 +102,8 @@
                                                 {% with iIndex =loop.index - 1 %}
                                                     {% set isItemActive= leave | int() ==iIndex %}
                                                     <li class="nav-item">
-                                                        <a href="{{ iVal.url }}" data-branch="{{ index }}" data-leave="{{ iIndex }}" leave="true"
+                                                        <a href="{{ iVal.url }}" data-branch="{{ index }}"
+                                                           data-leave="{{ iIndex }}" leave="true"
                                                            class="nav-link {{ 'active' if isActive and isItemActive else '' }}">
                                                             <i class="nav-icon fas fa-file"></i>
                                                             <p>{{ iVal.title }}</p>

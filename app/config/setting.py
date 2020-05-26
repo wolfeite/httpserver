@@ -1,11 +1,14 @@
 PER_PAGE = 15
+ERROR_HANDLER = True
 ASIDE = [
     {
-        "title": "首页",
+        "title": "类别管理",
+        "pre": "首页",
         "url": "/index"
     },
     {
-        "title": "表格",
+        "title": "内容管理",
+        "pre": "表格",
         "url": "#",
         "item": [
             {
@@ -19,7 +22,8 @@ ASIDE = [
         ]
     },
     {
-        "title": "表单",
+        "title": "样式管理",
+        "pre": "表单",
         "url": "#",
         "item": [
             {

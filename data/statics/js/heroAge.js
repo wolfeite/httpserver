@@ -122,5 +122,5 @@ $(function () {
 });
 
 $(document).ready(function () {
-  bsCustomFileInput.init();
+    window.bsCustomFileInput && bsCustomFileInput.init();
 });
